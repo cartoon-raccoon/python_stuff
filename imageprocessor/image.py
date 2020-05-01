@@ -1,14 +1,15 @@
 from PIL import Image
+import sys
 import os
-# from pathlib import Path
 
-directory = 'C:/Users/user/Documents/Python Stuff/imageprocessor/pokedex'
-# path = Path(directory)
-# path.mkdir(parents = True, exist_ok = True)
+path = 'C:/Users/user/Documents/Python Stuff/imageprocessor/pokedex'
+directory = '/new'
+if not os.path.exists(directory):
+    os.makedirs(directory)
 
-for filename in os.listdir(directory):
+for filename in os.listdir(path):
     if filename.endswith('.jpg'):
-        im = Image.open(directory + '/' + filename)
+        im = Image.open(path + '/' + filename)
         filename = filename[:-4]
         im.save(f'{directory}/{filename}.png','png')
     else:
